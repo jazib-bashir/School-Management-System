@@ -22,11 +22,85 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="home">Home</a></li>
-                <li><a href="#">Notice</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact</a></li>
-          <li class="dropdown">
+            <li><a href="?tag=home">Home</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Students <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=student_entry">Student Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_students">View Student</a>
+                    </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Teachers <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=teachers_entry">Teachers Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_teachers">View Teachers</a>
+                    </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Faculties <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=faculties_entry">Faculties Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_faculties">View Faculties</a>
+                    </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Subject <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=subject_entry">Subject Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_subjects">View Subject</a>
+                    </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Score <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=score_entry">Score Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_scores">View Score</a>
+                    </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Users <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="everyone.php?tag=susers_entry">Users Entry</a>
+                    </li>
+                    <li>
+                        <a href="everyone.php?tag=view_susers">View Users</a>
+                    </li>
+                </ul>
+              </li>
+              <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Contact <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Contact Entry</a>
+                    </li>
+                    <li>
+                        <a href="#">View Contact</a>
+                    </li>
+                </ul>
+ -->              </li>
+                <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Jazib <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li>
@@ -48,53 +122,31 @@
       
 
   <ul class="nav navbar-nav side-nav visible-lg visible-md visible-sm">
-      <li class="active">
-          <a href="?tag=home"><i class="fa fa-fw fa-home"></i>Home</a>
+      <li>
+          <a href="everyone.php?tag=student_entry">Student Entry</a>
       </li>
       <li>
-          <a href="everyone.php?tag=student_entry"><i class="fa fa-fw fa-arrows-v"></i> Student</a>
+          <a href="everyone.php?tag=teachers_entry">Teacher Entry</a>
       </li>
       <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#teacher"><i class="fa fa-fw fa-arrows-v"></i> Teacher <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="teacher" class="collapse">
-          <li>
-              <a href="#">Teacher Info</a>
-          </li>
-          <li>
-              <a href="#">Registration</a>
-          </li>
+          <a href="everyone.php?tag=faculties_entry">Faculty Entry</a>
+      </li>
+      <li>
+          <a href="everyone.php?tag=subject_entry">Subjects Entry</a>
+      </li>
+      <li>
+          <a href="everyone.php?tag=score_entry">Scores Entry</a>
+      </li>
+      <li>
+          <a href="everyone.php?tag=susers_entry">Users Entry</a>
+      </li>
+      <li>
+          <a href="everyone.php?tag=score_entry">About Us</a>
+      </li>
+      <li>
+          <a href="everyone.php?tag=score_entry">Contacts</a>
+      </li>
         </ul>
-      </li>
-      <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#class"><i class="fa fa-fw fa-arrows-v"></i>  Classes <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="class" class="collapse">
-          <li>
-              <a href="#">Classes Info</a>
-          </li>
-          <li>
-              <a href="#">Add Classes</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-          <a href="calendar"><i class="fa fa-fw fa-calendar"></i> Calendar</a>
-      </li>
-      <li>
-          <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-      </li>
-      <li>
-          <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-      </li>
-      <li>
-          <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-      </li>
-      <li>
-          <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-      </li>
-      <li>
-          <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-      </li>
-  </ul>
 </div>
 </nav>
   <div id="wrapper">
