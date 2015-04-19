@@ -1,0 +1,33 @@
+#wrapper {
+    padding-left: 0;
+}
+@media (min-width: 768px) {
+	#wrapper {
+  padding-left: 225px;
+  }
+}
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+}
+.login_form {
+	margin-top: 220px;
+	background-color: #fefeff;
+	border-radius: 5px;
+  box-shadow: 1px 2px 23px #000000;
+  padding: 20px;
+}
+.logo_div {
+	border-left: 15px solid #427CAA;
+}
+.login_form h4 {
+	font-weight: bold;
+}
+.left {
+  float: left;
+  margin-left: 10px;
+}
+.right {
+  float: right;
+  margin-right: 30px;
+}

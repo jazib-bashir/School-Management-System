@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+#question{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	background:#0005CA;
+	color:#FFF;
+	border-radius:2px;
+	text-indent:10px;
+	padding:5px;
+}
