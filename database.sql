@@ -225,7 +225,3 @@ INSERT INTO `users_tbl` (`u_id`, `username`, `password`, `type`, `note`) VALUES
 (1, 'admin', 'admin', 'creator', 'creator'),
 (2, 'everyone', 'viewonly', 'visitor', 'visitor'),
 (4, 'vannak', 'vannak', 'creator', 'assignment\r\n');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

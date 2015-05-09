@@ -11,7 +11,7 @@ body{
 	padding-left:12px;
 	padding-right:12px;
 	padding-bottom:14px;
-	height:600px;
+	height:auto;
 	border-radius:15px;
 	/*box-shadow:#0CF 2px 2px 2px 2px; use for 3D div */
 }
