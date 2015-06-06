@@ -17,15 +17,15 @@ if(isset($_POST['btn_sub'])){
 	
 
 $sql_ins=mysql_query("INSERT INTO sub_tbl 
-						VALUES(
-							NULL,
-							'$fa_name',
-							'$teach_name' ,
-							'$semester',
-							'$sub_name' ,
-							'$note'
-							)
-					");
+	VALUES(
+		NULL,
+		'$fa_name',
+		'$teach_name' ,
+		'$semester',
+		'$sub_name' ,
+		'$note'
+		)
+");
 	
 if($sql_ins==true)
 	$msg="1 Row Inserted";
@@ -44,14 +44,14 @@ if(isset($_POST['btn_upd'])){
 	
 	
 	$sql_update=mysql_query("UPDATE sub_tbl SET
-							faculties_id='$fac_id' ,
-							teacher_id='$tea_id' ,
-							semester='$semester' ,
-							sub_name='$sub_name' ,
-							note='$note' 
-						WHERE sub_id=$id
+		faculties_id='$fac_id' ,
+		teacher_id='$tea_id' ,
+		semester='$semester' ,
+		sub_name='$sub_name' ,
+		note='$note' 
+	WHERE sub_id=$id
 
-					");
+");
 					
 if($sql_update==true)
 	header("location:?tag=view_subjects");

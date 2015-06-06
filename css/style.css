@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 body{
-  background:url(../picture/back_login.gif);  
+  background:url(../picture/navy_blue.png);
 }
 #admin{
-  margin-top: 50px;
-  background:#CECECE;
+  /*margin-top: 50px;*/
+  /*background:#CECECE;*/
   /*width:1050px;*/
   padding-top:14px;
   padding-left:12px;

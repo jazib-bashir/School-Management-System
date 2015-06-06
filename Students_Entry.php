@@ -250,64 +250,66 @@ else
 {
 ?>
 <!-- for form Register-->
-<div class="">
-<div class="col-md-12 entry-head margin-20b">
-    <h4 class="left">Student Entry</h4>
-    <a class="btn btn-primary right" href="?tag=view_students">Students View</a>
-</div>	
 <div class="col-md-10 col-md-offset-1 form-style">
-    <form role="form" data-toggle="validator" method="post" class="">
-        <div class="row">
-		      <div class="form-group col-md-5">
-		          <label for="inputName" class="control-label">First Name:</label>
-		          <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
-		      </div>
-		      <div class="form-group col-md-5 col-md-offset-1">
-		          <label for="inputName" class="control-label">Last Name:</label>
-		          <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
-		      </div>
-        </div>
-        <div class="form-group">
-        	<div class="row">
-            <label for="inputName" class="control-label col-lg-12">Gender</label>
-            <div class="radio col-md-4">
-              <label><input type="radio" name="gender" value="male" required>Male</label>
-            </div>
-            <div class="radio col-md-4 margin-10t">
-              <label><input type="radio" name="gender" value="female" required>Female</label>
-            </div>
-          </div>  
-        </div>
-        <div class="form-group">
-         	<div class="row">
-         		<div class="col-md-3 margin-10t"><label for="inputName" class="control-label">Date of Birth :</label></div>
-        		<div class="col-md-5"><input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" required/></div>
-        	</div>
-        </div>
-        <div class="form-group">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Student Entry</h4>
+        <a class="btn btn-primary right" href="?tag=view_students">Students View</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
             <div class="row">
-                <div class="col-md-3"><label for="inputName" class="control-label">Address:</label></div>
-                <div class="col-md-8"><textarea class="form-control" cols="8" rows="6" required></textarea></div>
-            </div>    
-        </div>
-        <div class="row">
-              <div class="form-group col-md-5">
-                  <label for="inputName" class="control-label">Phone:</label>
-                  <input type="number"data-minlength="11" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
-              </div>
-              <div class="form-group col-md-5 col-md-offset-1">
-                  <label for="inputName" class="control-label">Email:</label>
-                  <input type="email" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
-              </div>
-        </div>
-        <div class="form-group text-center">
-            <div class="row">
-                <div class="col-md-4"><input type="submit" name="btn_sub" value="Register" class="btn btn-success"  /></div>
-                <div class="col-md-4"><input type="reset" value="Cancel" class="btn btn-primary"/></div>
+                  <div class="form-group">
+                      <label for="inputName" class="control-label col-sm-3">First Name:</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputName" class="control-label col-sm-3">Last Name:</label>
+                      <div class="col-sm-8">
+                          <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputName" class="control-label col-sm-3">Gender:</label>
+                      <div class="radio col-sm-2">
+                        <label><input type="radio" name="gender" value="male" required>Male</label>
+                      </div>
+                      <div class="radio col-sm-4">
+                         <label><input type="radio" name="gender" value="female" required>Female</label>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Phone:</label>
+                    <div class="col-sm-8">
+                        <input type="number"data-minlength="11" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Email:</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Date of Birth :</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Address:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" cols="8" rows="6" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_sub" value="Register" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 <!-- <div id="style_informations">
 	<form method="post" >
