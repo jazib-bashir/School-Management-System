@@ -117,3 +117,55 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+.main-widget {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.infographic-box {
+    padding: 20px;
+}
+.main-box {
+    background: #FFFFFF;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    border-radius: 3px;
+    background-clip: padding-box;
+}
+.infographic-box i {
+    font-size: 2.4em;
+    display: block;
+    float: left;
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+    color: #fff;
+}
+.red-bg {
+    background-color: #e74c3c!important;
+}
+.emerald-bg {
+    background-color: #3498db!important;
+}
+.green-bg {
+    background-color: #2ecc71!important;
+}
+.yellow-bg {
+    background-color: #f1c40f!important;
+}
+.infographic-box .headline {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: right;
+}
+.infographic-box .value {
+    font-size: 2.1em;
+    font-weight: 600;
+    margin-top: -5px;
+    display: block;
+    text-align: right;
+}
