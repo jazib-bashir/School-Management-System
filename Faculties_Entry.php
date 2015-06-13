@@ -79,8 +79,8 @@ if($opr=="upd")
 	<form method="post">
     	<div>
     	<table border="0" cellpadding="4" cellspacing="0">
-        	
-            
+
+
             <tr>
             	<td>Faculties's Name</td>
             	<td>
@@ -93,8 +93,8 @@ if($opr=="upd")
                 	<textarea name="notetxt" cols="23" rows="4"><?php  echo $rs_upd['note'];?></textarea>
                 </td>
             </tr>
-            
-            
+
+
             <tr>
                 <td colspan="2">
                 	<input type="reset" value="Cancel" id="button-in"/>
@@ -114,51 +114,79 @@ if($opr=="upd")
 else
 {
 ?>
-<div id="top_style">
-        <div id="top_style_text">
-        	Faculties Entry
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_faculties"><input type="button" name="btn_view" title="View_faculties" value="View_Faculties" id="button_view" style="width:120px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-    	<table border="0" cellpadding="4" cellspacing="0">
-        	
-            
-            <tr>
-            	<td>Faculties's Name</td>
-            	<td>
-                	<input type="text" name="fnametxt" id="textbox" />
-                </td>
-            </tr>
-             <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="4"></textarea>
-                </td>
-            </tr>
-            
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />
-                </td>
-            </tr>
-            </table>
-
-   </div>
-
-    </form>
-
-</div><!-- end of style_informatios -->
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Faculties Entry</h4>
+        <a class="btn btn-primary right" href="?tag=view_students">Faculties View</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Faculties's Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputName" class="control-label col-sm-3">Description:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" cols="8" rows="6" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_sub" value="Add Faculty" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--<div id="top_style">-->
+<!--        <div id="top_style_text">-->
+<!--        	Faculties Entry-->
+<!--        </div><!-- end of top_style_text-->
+<!--       <div id="top_style_button">-->
+<!--       		<form method="post">-->
+<!--            	<a href="?tag=view_faculties"><input type="button" name="btn_view" title="View_faculties" value="View_Faculties" id="button_view" style="width:120px;"  /></a>-->
+<!---->
+<!--       		</form>-->
+<!--       </div><!-- end of top_style_button-->
+<!--</div><!-- end of top_style-->
+<!---->
+<!--<div id="style_informations">-->
+<!--	<form method="post">-->
+<!--    	<div>-->
+<!--    	<table border="0" cellpadding="4" cellspacing="0">-->
+<!---->
+<!---->
+<!--            <tr>-->
+<!--            	<td>Faculties's Name</td>-->
+<!--            	<td>-->
+<!--                	<input type="text" name="fnametxt" id="textbox" />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--             <tr>-->
+<!--            	<td>Note</td>-->
+<!--                <td>-->
+<!--                	<textarea name="notetxt" cols="23" rows="4"></textarea>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!---->
+<!---->
+<!--            <tr>-->
+<!--                <td colspan="2">-->
+<!--                	<input type="reset" value="Cancel" id="button-in"/>-->
+<!--                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </table>-->
+<!---->
+<!--   </div>-->
+<!---->
+<!--    </form>-->
+<!---->
+<!--</div><!-- end of style_informatios -->
 
 <?php
 }
