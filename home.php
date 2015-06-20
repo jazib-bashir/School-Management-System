@@ -2,22 +2,40 @@
     <div class="col-lg-4 col-sm-6 col-xs-12 main-widget">
         <div class="main-box infographic-box">
             <i class="fa fa-users red-bg"></i>
-            <span class="headline">Student</span>
-            <span class="value">2562</span>
+            <span class="headline">Students</span>
+            <span class="value">
+                <?php
+                    $sql_sel=mysql_query("SELECT * FROM stu_tbl");
+                    $count = mysql_num_rows($sql_sel);
+                    echo $count;
+                ?>
+            </span>
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-xs-12 main-widget">
         <div class="main-box infographic-box">
             <i class="fa fa-users emerald-bg"></i>
-            <span class="headline">Teacher</span>
-            <span class="value">2562</span>
+            <span class="headline">Teachers</span>
+            <span class="value">
+                <?php
+                    $sql_sel=mysql_query("SELECT * FROM teacher_tbl");
+                    $count = mysql_num_rows($sql_sel);
+                    echo $count;
+                ?>
+            </span>
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-xs-12 main-widget">
         <div class="main-box infographic-box">
             <i class="fa fa-user green-bg"></i>
             <span class="headline">Users</span>
-            <span class="value">2562</span>
+            <span class="value">
+                <?php
+                    $sql_sel=mysql_query("SELECT * FROM users_tbl");
+                    $count = mysql_num_rows($sql_sel);
+                    echo $count;
+                ?>
+            </span>
         </div>
     </div>
     <div class="col-md-12 wrapper">
