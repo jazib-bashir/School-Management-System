@@ -14,35 +14,25 @@ if(isset($_POST['btn_sub'])){
 	$f_name=$_POST['fnametxt'];
 	$l_name=$_POST['lnametxt'];
 	$gender=$_POST['genderrdo'];
-	$dob=$_POST['yy']."/".$_POST['mm']."/".$_POST['dd'];
-	$pob=$_POST['pobtxt'];
+	$dob=$_POST['dob'];
 	$addr=$_POST['addrtxt'];
 	$degree=$_POST['degree'];
 	$salary=$_POST['slarytxt'];
 	$married=$_POST['marriedrdo'];
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
-	$note=$_POST['notetxt'];	
 	
-$sql_ins=mysql_query("INSERT INTO teacher_tbl 
-						VALUES(
-							NULL,
-							'$f_name',
-							'$l_name' ,
-							'$gender',
-							'$dob',
-							'$pob',
-							'$addr',
-							'$degree',
-							'$salary' ,
-							'$married',
-							'$phone',
-							'$mail',
-							'$note'
-							)
-					");
-if($sql_ins==true)
-	$msg="1 Row Inserted";
+$sql_ins=mysql_query("INSERT INTO teacher_tbl VALUES( NULL,'$f_name','$l_name' ,'$gender','$dob','$addr','$degree','$salary' ,'$married','$phone','$mail')");
+if($sql_ins==true) {
+    $msg = ucfirst($f_name) ;
+    echo "<div>"
+        . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Sucess!</strong> Teacher $msg record inserted"
+        . "</div>"
+        . "</div>";
+}
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -312,51 +302,51 @@ else
         <form role="form" data-toggle="validator" method="post" class="form-horizontal">
             <div class="row">
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">First Name:</label>
+                    <label for="fnametxt" class="control-label col-sm-3">First Name:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="text" class="form-control" id="fnametxt" name="fnametxt"  placeholder="First Name..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Last Name:</label>
+                    <label for="lnametxt" class="control-label col-sm-3">Last Name:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="text" class="form-control" id="lnametxt" name="lnametxt"  placeholder="Last Name..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Gender:</label>
+                    <label for="genderrdo" class="control-label col-sm-3">Gender:</label>
                     <div class="radio col-sm-2">
-                        <label><input type="radio" name="gender" value="male" required>Male</label>
+                        <label><input type="radio" name="genderrdo" value="male" required>Male</label>
                     </div>
                     <div class="radio col-sm-4">
-                        <label><input type="radio" name="gender" value="female" required>Female</label>
+                        <label><input type="radio" name="genderrdo" value="female" required>Female</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Married:</label>
+                    <label for="marriedrdo" class="control-label col-sm-3">Married:</label>
                     <div class="radio col-sm-2">
-                        <label><input type="radio" name="gender" value="male" required>Yes</label>
+                        <label><input type="radio" name="marriedrdo" value="male" required>Yes</label>
                     </div>
                     <div class="radio col-sm-4">
-                        <label><input type="radio" name="gender" value="female" required>No</label>
+                        <label><input type="radio" name="marriedrdo" value="female" required>No</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Phone:</label>
+                    <label for="phonetxt" class="control-label col-sm-3">Phone:</label>
                     <div class="col-sm-8">
-                        <input id="txtboxToFilter" type="number"data-minlength="11" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="number"data-minlength="11" class="form-control only-number" id="phonetxt" name="phonetxt"  placeholder="Contact No..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Salary:</label>
+                    <label for="slarytxt" class="control-label col-sm-3">Salary:</label>
                     <div class="col-sm-8">
-                        <input id="txtboxToFilter" type="number"data-minlength="11" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="number" class="form-control only-number" id="slarytxt" name="slarytxt"  placeholder="Teacher Salary..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Degree:</label>
+                    <label for="degree" class="control-label col-sm-3">Degree:</label>
                     <div class="col-sm-8">
-                        <select class="form-control">
+                        <select class="form-control" name="degree">
                             <option>Bachelor</option>
                             <option>Master</option>
                             <option>P.H.D</option>
@@ -364,21 +354,21 @@ else
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Email:</label>
+                    <label for="emailtxt" class="control-label col-sm-3">Email:</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="email" class="form-control" id="emailtxt" name="emailtxt"  placeholder="Email Address..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Date of Birth :</label>
+                    <label for="dob" class="control-label col-sm-3">Date of Birth :</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control datepicker" data-date-format="dd-mm-yyyy" required/>
+                        <input type="text" class="form-control datepicker" name="dob" data-date-format="yyyy-mm-dd" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Address:</label>
+                    <label for="addrtxt" class="control-label col-sm-3">Address:</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" cols="8" rows="6" required></textarea>
+                        <textarea class="form-control" name="addrtxt" cols="8" rows="6" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
