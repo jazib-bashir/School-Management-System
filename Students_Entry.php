@@ -184,12 +184,12 @@ if($opr=="upd")
 					</select>
                 </td>
             </tr>
-            
+
             <tr>
             	<td>Place Of Brith:</td>
                 <td>
                 	<input type="text" name="pobtxt" id="textbox" value="<?php echo $rs_upd['pob'];?> "/>
-                
+
                 </td>
             </tr>
             <tr>
@@ -225,7 +225,7 @@ if($opr=="upd")
                 	<input type="text" name="emailtxt"  id="textbox" value="<?php echo $rs_upd['email'];?> "/>
                 </td>
             </tr>
-            
+
             <tr>
             	<td>Note:</td>
                 <td>
@@ -311,119 +311,6 @@ else
         </form>
     </div>
 </div>
-<!-- <div id="style_informations">
-	<form method="post" >
-    <div>
-   	  <table border="0" cellpadding="4" cellspacing="0">
-        	<tr>
-            	<td>First Name:</td>
-            	<td>
-                	<input type="text" name="fnametxt" id="textbox"/>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Last Name:</td>
-            	<td>
-                	<input type="text" name="lnametxt" id="textbox"/>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Gender:</td>
-                <td>
-                	<input type="radio" name="gender" value="Male" checked="checked" />Male
-                    <input type="radio" name="gender" value="Female"/>Female
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Date Of Birth:</td>
-                <td>
-                	<select name="yy" >
-                    	<option>Year</option>
-                        <?php
-							
-							for($i=1985;$i<=2015;$i++){	
-							echo"<option value='$i'>$i</option>";
-							}
-						?>
-               	  </select>
-                    -
-                    <select name="mm">
-                    	<option>Month</option>
-						<?php
-                            $mm=array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","NOv","Dec");
-                            $i=0;
-                            foreach($mm as $mon){
-                                $i++;
-                                echo"<option value='$i'> $mon</option>";		
-                            }
-                        ?>
-                    </select>
-                    -
-                    <select name="dd">
-                    	<option>Date</option>
-						<?php
-                        for($i=1;$i<=31;$i++){
-                        ?>
-                        <option value="<?php echo $i; ?>">
-                        <?php
-                        if($i<10)
-                            echo"0".$i;
-                        else
-                            echo"$i";	  
-						?>
-						</option>	
-						<?php 
-						}?>
-					</select>
-              </td>
-        </tr>
-            
-            <tr>
-            	<td>Place Of Brith:</td>
-                <td>
-                	<input type="text" name="pobtxt" id="textbox"/>
-                
-                </td>
-            </tr>
-            <tr>
-            	<td>Address:</td>
-            	<td>
-                	<textarea name="addrtxt" cols="22" rows="3"></textarea>
-    			</td>
-        	</tr>
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_sub" value="Register" id="button-in"  />
-                </td>
-            </tr>
-	  </table>
-    </div>
- 
-	<div>
-	  <table border="0" cellpadding="4" cellspacing="0">
-	    <tr>
-	      <td>Phone:</td>
-	      <td><input type="text" name="phonetxt" id="textbox" /></td>
-        </tr>	
-	    <tr>
-	      <td>E-mail:</td>
-	      <td><input type="text" name="emailtxt"  id="textbox" /></td>
-        </tr>
-	    <tr>
-	      <td>Note:</td>
-	      <td><textarea name="notetxt" cols="22" rows="5"></textarea></td>
-        </tr>
-      </table>
-      
-	</div>
-    </form>
-
-</div> --><!-- end of style_informatios -->
 <?php
 }
 ?>
