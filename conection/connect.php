@@ -1,6 +1,6 @@
 <?php
 	mysql_connect("localhost","root","") or die("No Connection");
-	mysql_select_db("school") or die("No Database name");
+	mysql_select_db("test_db") or die("No Database name");
 ?>
 
 

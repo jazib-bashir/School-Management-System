@@ -41,11 +41,11 @@ else
 if(isset($_POST['btn_upd'])){
 	$f_name=$_POST['fnametxt'];
 	$l_name=$_POST['lnametxt'];
-	$gender=$_POST['genderrdo'];
-	$dob=$_POST['yy']."/".$_POST['mm']."/".$_POST['dd'];
-	$pob=$_POST['pobtxt'];
+	$gender=$_POST['gender'];
+	$dob=$_POST['dob'];
 	$addr=$_POST['addrtxt'];
 	$degree=$_POST['degree'];
+    $salary = $_POST['slarytxt'];
 	$married=$_POST['marriedrdo'];
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
@@ -129,7 +129,7 @@ if($opr=="upd")
                         <label><input type="radio" name="marriedrdo" value="male" <?php if($rs_upd['gender']=="male") echo "checked";?>>Yes</label>
                     </div>
                     <div class="radio col-sm-4">
-                        <label><input type="radio" name="marriedrdo" value="male" <?php if($rs_upd['gender']=="female") echo "checked";?>>No</label>
+                        <label><input type="radio" name="marriedrdo" value="female" <?php if($rs_upd['gender']=="female") echo "checked";?>>No</label>
                     </div>
                 </div>
                     <div class="form-group">

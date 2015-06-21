@@ -34,6 +34,7 @@
         }
 //------------------uodate data----------
 if(isset($_POST['btn_upd'])){
+    $roll_no = $_POST['roll_no'];
 	$f_name=$_POST['fnametxt'];
 	$l_name=$_POST['lnametxt'];
 	$gender=$_POST['gender'];
@@ -42,7 +43,8 @@ if(isset($_POST['btn_upd'])){
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
 	
-	$sql_update=mysql_query("UPDATE stu_tbl SET 
+	$sql_update=mysql_query("UPDATE stu_tbl SET
+                                roll_no = '$roll_no', 
 								f_name='$f_name',
 								l_name='$l_name' ,
 								gender='$gender',
