@@ -12,7 +12,6 @@ if(isset($_POST['btn_sub'])){
 	$username=$_POST['usertxt'];
 	$pwd=$_POST['pwdtxt'];
 	$type=$_POST['typetxt'];
-	$note=$_POST['notetxt'];	
 	
 
 $sql_ins=mysql_query("INSERT INTO users_tbl 
@@ -20,12 +19,19 @@ $sql_ins=mysql_query("INSERT INTO users_tbl
 							NULL,
 							'$username',
 							'$pwd' ,
-							'$type',
-							'$note'
+							'$type'
 							)
 					");
-if($sql_ins==true)
-	$msg="1 Row Inserted";
+if($sql_ins==true) {
+    $msg = ucfirst($username);
+    echo "<div>"
+        . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Sucess!</strong> User $msg record inserted"
+        . "</div>"
+        . "</div>";
+}
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -130,63 +136,102 @@ if($opr=="upd")
 else
 {
 ?>
-	<div id="top_style">
-        <div id="top_style_text">
-        Users Entry
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_users"><input type="button" name="btn_view" value="View_Users"  title="View Users" id="button_view" style="width:120px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-    	<table border="0" cellpadding="4" cellspacing="0">
-        
-            <tr>
-            	<td>Username </td>
-            	<td>
-                	<input type="text" name="usertxt" id="textbox" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Password</td>
-            	<td>
-                	<input type="text" name="pwdtxt" id="textbox" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Type</td>
-            	<td>
-                	<input type="text" name="typetxt" id="textbox" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="5"></textarea>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />
-                </td>
-            </tr>
-        </table>
-
-   </div>
-    </form>
-
-</div><!-- end of style_informatios -->
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">User Entry</h4>
+        <a class="btn btn-primary right" href="?tag=view_users">Users View</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label for="usertxt" class="control-label col-sm-3">Username:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="usertxt" name="usertxt"  placeholder="Username..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwdtxt" class="control-label col-sm-3">Password:</label>
+                    <div class="col-sm-8">
+                        <input type="password" data-minlength="6" data-error="Enter Valid 6 Digit Phone Number" class="form-control" id="pwdtxt" name="pwdtxt"  placeholder="Password..." required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="typetxt" class="control-label col-sm-3">Type:</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="typetxt">
+                            <option>Student</option>
+                            <option>Teacher</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_sub" value="Register" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--	<div id="top_style">-->
+<!--        <div id="top_style_text">-->
+<!--        Users Entry-->
+<!--        </div><!-- end of top_style_text-->-->
+<!--       <div id="top_style_button"> -->
+<!--       		<form method="post">-->
+<!--            	<a href="?tag=view_users"><input type="button" name="btn_view" value="View_Users"  title="View Users" id="button_view" style="width:120px;"  /></a>-->
+<!--             -->
+<!--       		</form>-->
+<!--       </div><!-- end of top_style_button-->-->
+<!--</div><!-- end of top_style-->-->
+<!---->
+<!--<div id="style_informations">-->
+<!--	<form method="post">-->
+<!--    	<div>-->
+<!--    	<table border="0" cellpadding="4" cellspacing="0">-->
+<!--        -->
+<!--            <tr>-->
+<!--            	<td>Username </td>-->
+<!--            	<td>-->
+<!--                	<input type="text" name="usertxt" id="textbox" />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            -->
+<!--            <tr>-->
+<!--            	<td>Password</td>-->
+<!--            	<td>-->
+<!--                	<input type="text" name="pwdtxt" id="textbox" />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            -->
+<!--            <tr>-->
+<!--            	<td>Type</td>-->
+<!--            	<td>-->
+<!--                	<input type="text" name="typetxt" id="textbox" />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            -->
+<!--            <tr>-->
+<!--            	<td>Note</td>-->
+<!--                <td>-->
+<!--                	<textarea name="notetxt" cols="23" rows="5"></textarea>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            -->
+<!--            <tr>-->
+<!--                <td colspan="2">-->
+<!--                	<input type="reset" value="Cancel" id="button-in"/>-->
+<!--                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!---->
+<!--   </div>-->
+<!--    </form>-->
+<!---->
+<!--</div><!-- end of style_informatios -->-->
 
 <?php
 }
