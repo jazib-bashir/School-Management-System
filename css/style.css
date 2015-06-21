@@ -99,6 +99,12 @@ body{
 .margin-20b {
   margin-bottom: 20px;
 }
+.margin10r {
+    margin-right: 10px;
+}
+.margin20L {
+    margin-left: 20px;
+}
 .entry-head {
   overflow: hidden;
 }
@@ -106,6 +112,17 @@ body{
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
+}
+.view-form-style {
+    margin-left: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+@media(max-width:768px) {
+    .view-form-style {
+        margin-left: 0;
+    }
 }
 .white-color {
     color: #fff;
