@@ -52,9 +52,9 @@ if(isset($_GET['rs_id']))
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Students ID </th>
-            <th>Faculties ID</th>
-            <th>Subjecst ID </th>
+            <th>Students Name </th>
+            <th>Faculties Name</th>
+            <th>Subjecst Name</th>
             <th>Mider</th>
             <th>Final</th>
             <th>Note</th>
