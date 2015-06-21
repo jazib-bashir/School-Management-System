@@ -200,7 +200,7 @@ else
                 <div class="form-group">
                     <label for="phonetxt" class="control-label col-sm-3">Phone:</label>
                     <div class="col-sm-8">
-                        <input type="number"data-minlength="11" class="form-control only-number" data-error="Enter Valid 11 Digit Phone Number  " id="phonetxt" name="phonetxt"  placeholder="Phone..." required>
+                        <input type="number" data-minlength="11" class="form-control only-number" data-error="Enter Valid 11 Digit Phone Number" id="phonetxt" name="phonetxt"  placeholder="Phone..." required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
