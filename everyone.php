@@ -85,7 +85,7 @@
                         <a href="everyone.php?tag=susers_entry">Users Entry</a>
                     </li>
                     <li>
-                        <a href="everyone.php?tag=view_susers">View Users</a>
+                        <a href="everyone.php?tag=view_users">View Users</a>
                     </li>
                 </ul>
               </li>
