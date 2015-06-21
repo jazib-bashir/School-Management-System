@@ -45,7 +45,7 @@ if(isset($_GET['rs_id']))
     <div class="table-responsive">
         <table class="table table-bordered">
         <tr>
-            <th>No</th>
+            <th>Roll NO</th>
             <th>Student Name</th>
             <th>Gender</th>
             <th>DoB</th>
@@ -73,7 +73,7 @@ if(isset($_GET['rs_id']))
     $color=($i%2==0)?"lightblue":"white";
     ?>
       <tr bgcolor="<?php echo $color?>">
-            <td><?php echo $i;?></td>
+            <td><?php echo $row['roll_no'];?></td>
             <td><?php echo $row['f_name']."    ".$row['l_name'];?></td>
             <td><?php echo $row['gender'];?></td>
             <td><?php echo $row['dob'];?></td>
