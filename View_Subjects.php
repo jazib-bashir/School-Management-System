@@ -55,7 +55,7 @@ if(isset($_GET['rs_id']))
         <tr>
             <th>No</th>
             <th>Subject Name</th>
-            <th>Semester</th>
+            <th>Class</th>
             <th>Faculties Name</th>
             <th>Teachers Name</th>
             <th colspan="2">Operation</th>

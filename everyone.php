@@ -140,12 +140,6 @@
       <li>
           <a href="everyone.php?tag=susers_entry">Users Entry</a>
       </li>
-      <li>
-          <a href="everyone.php?tag=score_entry">About Us</a>
-      </li>
-      <li>
-          <a href="everyone.php?tag=score_entry">Contacts</a>
-      </li>
         </ul>
 </div>
 </nav>

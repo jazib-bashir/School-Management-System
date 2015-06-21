@@ -67,7 +67,7 @@ if($sql_update==true) {
         . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
         . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
         . "</button>"
-        . "<strong>Sucess!</strong> Sscore Updated"
+        . "<strong>Sucess!</strong> Score Updated"
         . "</div>"
         . "</div>";
 }

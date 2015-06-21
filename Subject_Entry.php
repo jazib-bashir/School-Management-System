@@ -151,7 +151,7 @@ if($opr=="upd")
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="smesterText" class="control-label col-sm-3">Smester:</label>
+                    <label for="smesterText" class="control-label col-sm-3">Class:</label>
                     <div class="col-sm-8">
                         <input type="number" class="form-control only-number" id="smesterText" name="semestertxt" value="<?php echo $rs_upd['semester'];?>">
                     </div>
@@ -222,9 +222,9 @@ else
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="smesterText" class="control-label col-sm-3">Smester:</label>
+                    <label for="smesterText" class="control-label col-sm-3">Class:</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control only-number" id="smesterText" name="semestertxt"  placeholder="Smester(e.g: 1-8)" required>
+                        <input type="number" class="form-control only-number" id="smesterText" name="semestertxt"  placeholder="Enter Class e.g(1-10)" required>
                     </div>
                 </div>
                 <div class="form-group">
