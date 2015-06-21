@@ -46,7 +46,7 @@ if(isset($_POST['btn_upd'])){
 	$sql_update=mysql_query("UPDATE users_tbl SET 
 								username='$username' ,
 								password='$pwd' , 
-								type='$note'
+								type='$type'
 							WHERE
 								u_id=$id
 							");
@@ -109,7 +109,7 @@ if($opr=="upd")
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="btn_sub" value="Register" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="submit" name="btn_upd" value="Register" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
                     <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
                 </div>
             </div>
