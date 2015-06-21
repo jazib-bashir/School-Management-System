@@ -11,8 +11,17 @@ if(isset($_GET['rs_id']))
 	if($opr=="del")
 {
 	$del_sql=mysql_query("DELETE FROM teacher_tbl WHERE teacher_id=$id");
-	if($del_sql)
-		$msg="1 Record Deleted... !";
+	if($del_sql) {
+        {
+            echo "<div>"
+                . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+                . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+                . "</button>"
+                . "<strong>Sucess!</strong> Record Deleted"
+                . "</div>"
+                . "</div>";
+        }
+    }
 	else
 		$msg="Could not Delete :".mysql_error();	
 			

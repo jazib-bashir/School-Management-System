@@ -19,8 +19,18 @@ $sql_ins=mysql_query("INSERT INTO facuties_tbl
 							'$note'
 							)
 					");
-if($sql_ins==true)
-	$msg="1 Row Inserted";
+if($sql_ins==true) {
+    {
+        $msg = ucfirst(fnametxt) ;
+        echo "<div>"
+            . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+            . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+            . "</button>"
+            . "<strong>Sucess!</strong> Student $msg record inserted"
+            . "</div>"
+            . "</div>";
+    }
+}
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -37,10 +47,24 @@ if(isset($_POST['btn_upd'])){
 							WHERE
 								faculties_id=$id
 							");
-	if($sql_update==true)
-		header("location:?tag=view_faculties");
-	else
-		$msg="Update Fail".mysql_error();
+	if($sql_update==true) {
+        echo "<div>"
+            . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+            . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+            . "</button>"
+            . "<strong>Sucess!</strong> Faculty Updated"
+            . "</div>"
+            . "</div>";
+    }
+	else {
+        echo "<div>"
+            . "<div class='alert alert-danger col-md-6 col-md-offset-3'>"
+            . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+            . "</button>"
+            . "<strong>Warning!</strong> Update Failed"
+            . "</div>"
+            . "</div>";
+    }
 	}
 ?>
 
@@ -62,52 +86,35 @@ if($opr=="upd")
 	$rs_upd=mysql_fetch_array($sql_upd);
 	
 ?>
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Faculties Update</h4>
+        <a class="btn btn-primary right" href="?tag=view_faculties">Back</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label for="fnametxt" class="control-label col-sm-3">Faculties's Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="fnametxt" name="fnametxt" value="<?php echo $rs_upd['faculties_name'];?>" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notetxt" class="control-label col-sm-3">Description:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="notetxt" cols="8" rows="6"><?php  echo $rs_upd['note'];?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_upd" value="Update" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-<div id="top_style">
-        <div id="top_style_text">
-        	Faculties Update
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_faculties"><input type="button" name="btn_view" value="Back" title="View_faculties" id="button_view" style="width:70px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-    	<table border="0" cellpadding="4" cellspacing="0">
-
-
-            <tr>
-            	<td>Faculties's Name</td>
-            	<td>
-                	<input type="text" name="fnametxt" id="textbox" value="<?php echo $rs_upd['faculties_name'];?>" />
-                </td>
-            </tr>
-             <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="4"><?php  echo $rs_upd['note'];?></textarea>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_upd" value="Update" id="button-in"  />
-                </td>
-            </tr>
-            </table>
-
-   </div>
-
-    </form>
-
-</div><!-- end of style_informatios -->
 
 <?php	
 }
@@ -117,21 +124,21 @@ else
 <div class="col-md-10 col-md-offset-1 form-style">
     <div class="col-md-12 entry-head margin-20b">
         <h4 class="left">Faculties Entry</h4>
-        <a class="btn btn-primary right" href="?tag=view_students">Faculties View</a>
+        <a class="btn btn-primary right" href="?tag=view_faculties">Faculties View</a>
     </div>
     <div class="col-md-10 col-md-offset-1">
         <form role="form" data-toggle="validator" method="post" class="form-horizontal">
             <div class="row">
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Faculties's Name:</label>
+                    <label for="fnametxt" class="control-label col-sm-3">Faculties's Name:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="username" name="username"  placeholder="Your Username..." required>
+                        <input type="text" class="form-control" id="fnametxt" name="fnametxt"  placeholder="Faculty Name..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName" class="control-label col-sm-3">Description:</label>
+                    <label for="notetxt" class="control-label col-sm-3">Description:</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" cols="8" rows="6" required></textarea>
+                        <textarea class="form-control" name="notetxt" cols="8" rows="6" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -142,52 +149,6 @@ else
         </form>
     </div>
 </div>
-<!--<div id="top_style">-->
-<!--        <div id="top_style_text">-->
-<!--        	Faculties Entry-->
-<!--        </div><!-- end of top_style_text-->
-<!--       <div id="top_style_button">-->
-<!--       		<form method="post">-->
-<!--            	<a href="?tag=view_faculties"><input type="button" name="btn_view" title="View_faculties" value="View_Faculties" id="button_view" style="width:120px;"  /></a>-->
-<!---->
-<!--       		</form>-->
-<!--       </div><!-- end of top_style_button-->
-<!--</div><!-- end of top_style-->
-<!---->
-<!--<div id="style_informations">-->
-<!--	<form method="post">-->
-<!--    	<div>-->
-<!--    	<table border="0" cellpadding="4" cellspacing="0">-->
-<!---->
-<!---->
-<!--            <tr>-->
-<!--            	<td>Faculties's Name</td>-->
-<!--            	<td>-->
-<!--                	<input type="text" name="fnametxt" id="textbox" />-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--             <tr>-->
-<!--            	<td>Note</td>-->
-<!--                <td>-->
-<!--                	<textarea name="notetxt" cols="23" rows="4"></textarea>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!---->
-<!---->
-<!--            <tr>-->
-<!--                <td colspan="2">-->
-<!--                	<input type="reset" value="Cancel" id="button-in"/>-->
-<!--                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--            </table>-->
-<!---->
-<!--   </div>-->
-<!---->
-<!--    </form>-->
-<!---->
-<!--</div><!-- end of style_informatios -->
-
 <?php
 }
 ?>
