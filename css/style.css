@@ -173,6 +173,9 @@ input::-webkit-inner-spin-button {
 .yellow-bg {
     background-color: #f1c40f!important;
 }
+.orange-bg {
+    background-color: #f19e64 !important;
+}
 .infographic-box .headline {
     display: block;
     font-size: 1.2em;
