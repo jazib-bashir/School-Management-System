@@ -10,8 +10,15 @@ if(isset($_GET['rs_id']))
 	if($opr=="del")
 {
 	$del_sql=mysql_query("DELETE FROM stu_score_tbl WHERE ss_id=$id");
-	if($del_sql)
-		$msg="1 Record Deleted... !";
+	if($del_sql) {
+        echo "<div>"
+            . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+            . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+            . "</button>"
+            . "<strong>Sucess!</strong> Record Deleted"
+            . "</div>"
+            . "</div>";
+    }
 	else
 		$msg="Could not Delete :".mysql_error();	
 			
@@ -27,22 +34,22 @@ if(isset($_GET['rs_id']))
 </head>
 
 <body>
-<div id="style_div" >
-<form method="post">
-<table width="755">
-	<tr>
-    	<td width="190px" style="font-size:18px; color:#006; text-indent:30px;">View Scores</td>
-        <td><a href="?tag=score_entry"><input type="button" title="Add new Scores" name="butAdd" value="Add New" id="button-search" /></a></td>
-        <td><input type="text" name="searchtxt" title="Enter name for search " class="search" autocomplete="off"/></td>
-        <td style="float:right"><input type="submit" name="btnsearch" value="Search" id="button-search" title="Search Score" /></td>
-    </tr>
-</table>
-</form>
-</div>
-<br />
+<div class="col-md-12  view-form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Score View</h4>
+        <a class="btn btn-primary right" href="?tag=score_entry">Add New Score</a>
+    </div>
+    <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-1     col-xs-9 col-sm-10">
+                <input type="text" class="form-control" name="searchtxt" Placeholder="Enter name for search" autocomplete="off"/></div>
+            <input type="submit" name="btnsearch" value="Search" class="btn btn-info"/>
+        </div>
+    </form>
 
-<div id="content-input">
-	 <table border="1" width="1050px" align="center" cellpadding="3" class="mytable" cellspacing="0">
+
+<div class="table-responsive">
+    <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Students ID </th>

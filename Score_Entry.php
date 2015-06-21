@@ -28,8 +28,15 @@ $sql_ins=mysql_query("INSERT INTO stu_score_tbl
 							'$note'
 							)
 					");
-if($sql_ins==true)
-	$msg="1 Row Inserted";
+if($sql_ins==true) {
+    echo "<div>"
+        . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Sucess!</strong> New Score inserted"
+        . "</div>"
+        . "</div>";
+}
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -55,249 +62,208 @@ if(isset($_POST['btn_upd'])){
 
 					");
 					
-if($sql_update==true)
-	header("location:?tag=view_scores");
-else
-	$msg="Update Fail!...";
-	
-	
+if($sql_update==true) {
+    echo "<div>"
+        . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Sucess!</strong> Sscore Updated"
+        . "</div>"
+        . "</div>";
+}
+else {
+    echo "<div>"
+        . "<div class='alert alert-danger col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Warning!</strong> Update Failed"
+        . "</div>"
+        . "</div>";
+}
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>::. Build Bright University .::</title>
-<link rel="stylesheet" type="text/css" href="css/style_entry.css" />
-</head>
-
-<body>
 <?php
 if($opr=="upd")
 {
 	$sql_upd=mysql_query("SELECT * FROM stu_score_tbl WHERE ss_id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 ?>
-
-	<div id="top_style">
-        <div id="top_style_text">
-      		Scores Update
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_scores"><input type="button" name="btn_view" value="Back" id="button_view" style="width:70px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-    	<table border="0" cellpadding="5" cellspacing="0">
-        	<tr>
-            	<td>Students's Name</td>
-            	<td>
-                	<select name="sudenttxt" id="textbox">
-                    	<option>---- Students's Name -----</option>
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Score Update</h4>
+        <a class="btn btn-primary right" href="?tag=view_scores">Back</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label id="sudenttxt" class="control-label col-sm-3">Student's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="sudenttxt" class="form-control">
                             <?php
-                          		$student_name=mysql_query("SELECT * FROM stu_tbl");
-								while($row=mysql_fetch_array($student_name)){
-									 if($row['stu_id']==$rs_upd['stu_id'])
-								   		$iselect="selected";
-									else
-										$iselect="";
-								?>
-                                <option value="<?php echo $row['stu_id'];?>" <?php echo $iselect ;?> > <?php echo $row['f_name']; echo" "; echo $row['l_name'];?> </option>
-								<?php	
-								}
-                            ?>
-                            
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Facuties's Name</td>
-            	<td>
-                	<select name="factxt" id="textbox">
-                    	<option>---- Facuries's Name   ------</option>
+                            $student_name=mysql_query("SELECT * FROM stu_tbl");
+                            while($row=mysql_fetch_array($student_name)){
+                                if($row['stu_id']==$rs_upd['stu_id'])
+                                    $iselect="selected";
+                                else
+                                    $iselect="";
+                                ?>
+                                <option value="<?php echo $row['f_name']; echo" "; echo $row['l_name'];?>" <?php echo $iselect ;?> > <?php echo $row['f_name']; echo" "; echo $row['l_name'];?> </option>
                             <?php
-                               $fac_name=mysql_query("SELECT * FROM facuties_tbl");
-							   while($row=mysql_fetch_array($fac_name)){
-								    if($row['faculties_id']==$rs_upd['faculties_id'])
-								   		$iselect="selected";
-									else
-										$iselect="";
-								?>
-                        		<option value="<?php echo $row['faculties_id'];?>" <?php echo $iselect ;?> > <?php echo $row['faculties_name'];?> </option>
-                                <?php 
-							   }
+                            }
                             ?>
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Subjects's Name</td>
-            	<td>
-                	<select name="subjecttxt" id="textbox">
-                    	<option>------------ Sujects -----------</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="factxt" class="control-label col-sm-3">Facultie's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="factxt" class="form-control">
                             <?php
-                               $subject=mysql_query("SELECT * FROM sub_tbl");
-							   while($row=mysql_fetch_array($subject)){
-								   if($row['sub_id']==$rs_upd['sub_id'])
-								   		$iselect="selected";
-									else
-										$iselect="";
-							?>
-                            <option value="<?php echo $row['sub_id'];?>" <?php echo $iselect ;?> > <?php echo $row['sub_name'];?> </option>
-                            <?php	   
-							   }
+                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
+                            while($row=mysql_fetch_array($fac_name)){
+                                if($row['faculties_id']==$rs_upd['faculties_id'])
+                                    $iselect="selected";
+                                else
+                                    $iselect="";
+                                ?>
+                                <option value="<?php echo $row['faculties_name'];?>" <?php echo $iselect ;?> > <?php echo $row['faculties_name'];?> </option>
+                            <?php
+                            }
                             ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-            	<td>Miderm</td>
-            	<td>
-                	<input type="text" name="midermtxt" id="textbox" value="<?php echo $rs_upd['miderm'];?> "/>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Final</td>
-                <td>
-                	<input type="text" name="finaltxt"  id="textbox" value="<?php echo $rs_upd['final'];?>" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="3"><?php echo $rs_upd['note'];?></textarea>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_upd" value="Update" id="button-in" title="Update"  />
-                </td>
-            </tr>
-		</table>
-
-   </div>
-    </form>
-
-</div><!-- end of style_informatios -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="subjecttxt" class="control-label col-sm-3">Subject Name:</label>
+                    <div class="col-sm-8">
+                        <select name="subjecttxt" class="form-control">
+                            <?php
+                            $subject=mysql_query("SELECT * FROM sub_tbl");
+                            while($row=mysql_fetch_array($subject)){
+                                if($row['sub_id']==$rs_upd['sub_id'])
+                                    $iselect="selected";
+                                else
+                                    $iselect="";
+                                ?>
+                                <option value="<?php echo $row['sub_name'];?>" <?php echo $iselect ;?> > <?php echo $row['sub_name'];?> </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="midermtxt" class="control-label col-sm-3">Midterm:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control only-number" id="midermtxt" name="midermtxt" value=    <?php echo $rs_upd['miderm'];?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="finaltxt" class="control-label col-sm-3">Final:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control only-number" id="finaltxt" name="finaltxt" value="<?php echo $rs_upd['final'];?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notetxt" class="control-label col-sm-3">Remarks:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="notetxt" cols="8" rows="6"><?php echo $rs_upd['note'];?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_upd" value="Update" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <?php	
 }
 else
 {
 ?>
-	
-    <div id="top_style">
-        <div id="top_style_text">
-      		Scores Entry
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_scores"><input type="button" name="btn_view" value="View_Scores" id="button_view" style="width:120px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-    	<table border="0" cellpadding="5" cellspacing="0">
-        	<tr>
-            	<td>Students's Name</td>
-            	<td>
-                	<select name="sudenttxt" id="textbox">
-                    	<option>---- Students's Name -----</option>
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Score Entry</h4>
+        <a class="btn btn-primary right" href="?tag=view_scores">Score View</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label id="sudenttxt" class="control-label col-sm-3">Student's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="sudenttxt" class="form-control">
                             <?php
-                          		$student_name=mysql_query("SELECT * FROM stu_tbl");
-								while($row=mysql_fetch_array($student_name)){
-								?>
-                                <option value="<?php echo $row['stu_id'];?>"> <?php echo $row['f_name']; echo" "; echo $row['l_name'];?> </option>
-								<?php	
-								}
-                            ?>
-                            
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Facuties's Name</td>
-            	<td>
-                	<select name="factxt" id="textbox">
-                    	<option>---- Facuries's Name   ------</option>
+                            $student_name=mysql_query("SELECT * FROM stu_tbl");
+                            while($row=mysql_fetch_array($student_name)){
+                                ?>
+                                <option value="<?php echo $row['f_name']; echo" "; echo $row['l_name'];?>"> <?php echo $row['f_name']; echo" "; echo $row['l_name'];?> </option>
                             <?php
-                               $fac_name=mysql_query("SELECT * FROM facuties_tbl");
-							   while($row=mysql_fetch_array($fac_name)){
-								?>
-                        		<option value="<?php echo $row['faculties_id'];?>"> <?php echo $row['faculties_name'];?> </option>
-                                <?php 
-							   }
+                            }
                             ?>
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Subjects's Name</td>
-            	<td>
-                	<select name="subjecttxt" id="textbox">
-                    	<option>------------ Sujects -----------</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="factxt" class="control-label col-sm-3">Facultie's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="factxt" class="form-control">
                             <?php
-                               $subject=mysql_query("SELECT * FROM sub_tbl");
-							   while($row=mysql_fetch_array($subject)){
-							?>
-                            <option value="<?php echo $row['sub_id'];?>"> <?php echo $row['sub_name'];?> </option>
-                            <?php	   
-							   }
+                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
+                            while($row=mysql_fetch_array($fac_name)){
+                                ?>
+                                <option value="<?php echo $row['faculties_name'];?>"> <?php echo $row['faculties_name'];?> </option>
+                            <?php
+                            }
                             ?>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-            	<td>Miderm</td>
-            	<td>
-                	<input type="text" name="midermtxt" id="textbox" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Final</td>
-                <td>
-                	<input type="text" name="finaltxt"  id="textbox" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="3"></textarea>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_sub" value="Add Now" id="button-in"  />
-                </td>
-            </tr>
-		</table>
-
-   </div>
-    </form>
-
-</div><!-- end of style_informatios -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="subjecttxt" class="control-label col-sm-3">Subject Name:</label>
+                    <div class="col-sm-8">
+                        <select name="subjecttxt" class="form-control">
+                            <?php
+                            $subject=mysql_query("SELECT * FROM sub_tbl");
+                            while($row=mysql_fetch_array($subject)){
+                                ?>
+                                <option value="<?php echo $row['sub_name'];?>"> <?php echo $row['sub_name'];?> </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="midermtxt" class="control-label col-sm-3">Midterm:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control only-number" id="midermtxt" name="midermtxt"  placeholder="Midterm Marks..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="finaltxt" class="control-label col-sm-3">Final:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control only-number" id="finaltxt" name="finaltxt"  placeholder="Finak Marks" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notetxt" class="control-label col-sm-3">Remarks:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="notetxt" cols="8" rows="6" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_sub" value="Register" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <?php
 }
 ?>
