@@ -10,8 +10,15 @@ if(isset($_GET['rs_id']))
 	if($opr=="del")
 {
 	$del_sql=mysql_query("DELETE FROM sub_tbl WHERE sub_id=$id");
-	if($del_sql)
-		$msg="1 Record Deleted... !";
+	if($del_sql) {
+            echo "<div>"
+                . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+                . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+                . "</button>"
+                . "<strong>Sucess!</strong> Record Deleted"
+                . "</div>"
+                . "</div>";
+        }
 	else
 		$msg="Could not Delete :".mysql_error();	
 			
@@ -29,30 +36,28 @@ if(isset($_GET['rs_id']))
 </head>
 
 <body>
-<div id="style_div" >
-<form method="post">
-<table width="755">
-	<tr>
-    	<td width="200px" style="font-size:18px; color:#006; text-indent:30px;">View Subjects</td>
-        <td><a href="?tag=subject_entry"><input type="button" title="Add new Subjects" name="butAdd" value="Add New" id="button-search" /></a></td>
-        <td><input type="text" name="searchtxtz" title="Enter name for search " class="search" autocomplete="off"/></td>
-        <td style="float:right"><input type="submit" name="btnsearch" value="Search" id="button-search" title="Search Subject" /></td>
-    </tr>
-</table>
+<div class="col-md-12  view-form-style">
+<div class="col-md-12 entry-head margin-20b">
+    <h4 class="left">Subject View</h4>
+    <a class="btn btn-primary right" href="?tag=subject_entry">Add New Subject</a>
+</div>
+<form role="form" data-toggle="validator" method="post" class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-1     col-xs-9 col-sm-10">
+            <input type="text" class="form-control" name="searchtxt" Placeholder="Enter Subject name for search" autocomplete="off"/></div>
+        <input type="submit" name="btnsearch" value="Search" class="btn btn-info"/>
+    </div>
 </form>
-</div><!--end of style_div -->
-<br />
 
-<div id="content-input">
+<div class="table-responsive">
 	<form method="post">
-    <table border="1" width="805px" align="center" cellpadding="3" class="mytable" cellspacing="0">
+        <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Subject Name</th>
+            <th>Semester</th>
             <th>Faculties Name</th>
             <th>Teachers Name</th>
-            <th>Semester</th>
-             <th>Subject Name</th>
-            <th>Note</th>
             <th colspan="2">Operation</th>
       	</tr>
         
@@ -73,11 +78,10 @@ if(isset($_GET['rs_id']))
     ?>
       <tr bgcolor="<?php echo $color?>">
             <td><?php echo $i;?></td>
-            <td><?php echo $row['faculties_id'];?></td>
+          <td><?php echo $row['sub_name'];?></td>
+          <td><?php echo $row['semester'];?></td>
+          <td><?php echo $row['faculties_id'];?></td>
             <td><?php echo $row['teacher_id'];?></td>
-            <td><?php echo $row['semester'];?></td>
-            <td><?php echo $row['sub_name'];?></td>
-            <td><?php echo $row['note'];?></td>
             <td align="center"><a href="?tag=subject_entry&opr=upd&rs_id=<?php echo $row['sub_id'];?>" title="Upate"><img src="picture/update.png" /></a></td>
             <td align="center"><a href="?tag=view_subjects&opr=del&rs_id=<?php echo $row['sub_id'];?>" title="Delete"><img src="picture/delete.png" /></a></td>
         </tr>

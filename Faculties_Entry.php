@@ -21,12 +21,11 @@ $sql_ins=mysql_query("INSERT INTO facuties_tbl
 					");
 if($sql_ins==true) {
     {
-        $msg = ucfirst(fnametxt) ;
         echo "<div>"
             . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
             . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
             . "</button>"
-            . "<strong>Sucess!</strong> Student $msg record inserted"
+            . "<strong>Sucess!</strong> New Faculty inserted"
             . "</div>"
             . "</div>";
     }

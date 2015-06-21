@@ -28,7 +28,16 @@ $sql_ins=mysql_query("INSERT INTO sub_tbl
 ");
 	
 if($sql_ins==true)
-	$msg="1 Row Inserted";
+    {
+        echo "<div>"
+            . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+            . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+            . "</button>"
+            . "<strong>Sucess!</strong> New Subject inserted"
+            . "</div>"
+            . "</div>";
+    }
+
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -53,10 +62,24 @@ if(isset($_POST['btn_upd'])){
 
 ");
 					
-if($sql_update==true)
-	header("location:?tag=view_subjects");
-else
-	$msg="Update Fail!...";
+if($sql_update==true) {
+    echo "<div>"
+        . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Sucess!</strong> Subject Updated"
+        . "</div>"
+        . "</div>";
+}
+else {
+    echo "<div>"
+        . "<div class='alert alert-danger col-md-6 col-md-offset-3'>"
+        . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+        . "</button>"
+        . "<strong>Warning!</strong> Update Failed"
+        . "</div>"
+        . "</div>";
+}
 }
 ?>
 
@@ -79,99 +102,81 @@ if($opr=="upd")
 	$rs_upd=mysql_fetch_array($sql_upd);
 	
 ?>
-<div id="top_style">
-        <div id="top_style_text">
-        Subjects Entry
-        </div><!-- end of top_style_text-->
-       <div id="top_style_button"> 
-       		<form method="post">
-            	<a href="?tag=view_subjects" ><input type="button" name="btn_view" title="Back" value="Back" id="button_view" style="width:70px;"  /></a>
-             
-       		</form>
-       </div><!-- end of top_style_button-->
-</div><!-- end of top_style-->
-
-<div id="style_informations">
-	<form method="post">
-    	<div>
-        	<table border="0" cellpadding="5" cellspacing="0">
-        	<tr>
-            	<td>Facuties's Name</td>
-            	<td>
-                	<select name="factxt" id="textbox">
-                    	<option>---- Facuries's Name   ------</option>
+<div class="col-md-10 col-md-offset-1 form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Subject Update</h4>
+        <a class="btn btn-primary right" href="?tag=view_subjects">Back</a>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">facultie's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="factxt" class="form-control">
                             <?php
-                               $fac_name=mysql_query("SELECT * FROM facuties_tbl");
-							   while($row=mysql_fetch_array($fac_name)){
-								   if($row['faculties_id']==$rs_upd['faculties_id'])
-								   		$iselect="selected";
-									else
-										$iselect="";
-								?>
-                        		<option value="<?php echo $row['faculties_id'];?>" <?php echo $iselect;?> > <?php echo $row['faculties_name'];?> </option>
-                                <?php 
-							   }
-							
-                            ?>
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Teacher's Name</td>
-            	<td>
-                	<select name="techtxt" id="textbox">
-                    	<option>---- Teachers's Name   ----</option>
+                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
+                            while($row=mysql_fetch_array($fac_name)){
+                                if($row['faculties_id']==$rs_upd['faculties_id'])
+                                    $iselect="selected";
+                                else
+                                    $iselect="";
+                                ?>
+                                <option value="<?php echo $row['faculties_name'];?>" <?php echo $iselect;?> > <?php echo $row['faculties_name'];?> </option>
                             <?php
-                                $te_name=mysql_query("SELECT * FROM teacher_tbl");
-								while($row=mysql_fetch_array($te_name)){
-									if($row['teacher_id']==$rs_upd['teacher_id'])
-								   		$iselect="selected";
-									else
-										$iselect="";
-								?>
-                                <option value="<?php echo $row['teacher_id'];?>" <?php echo $iselect?> > <?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?> </option>
-                                	
-								<?php	
-									}
+                            }
+
                             ?>
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Semester</td>
-            	<td>
-                	<input type="text" name="semestertxt" id="textbox" value="<?php echo $rs_upd['semester'];?>"  />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Subjects's name</td>
-                <td>
-                	<input type="text" name="subtxt"  id="textbox" value="<?php echo $rs_upd['sub_name'];?>" />
-                </td>
-            </tr>
-            
-            <tr>
-            	<td>Note</td>
-                <td>
-                	<textarea name="notetxt" cols="23" rows="3"><?php echo $rs_upd['note'];?></textarea>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                	<input type="reset" value="Cancel" id="button-in"/>
-                	<input type="submit" name="btn_upd" value="Update" id="button-in"  />
-                </td>
-            </tr>
-		</table>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Teacher's Name:</label>
+                    <div class="col-sm-8">
+                        <select name="techtxt" class="form-control">
+                            <?php
+                            $te_name=mysql_query("SELECT * FROM teacher_tbl");
+                            while($row=mysql_fetch_array($te_name)){
+                                if($row['teacher_id']==$rs_upd['teacher_id'])
+                                    $iselect="selected";
+                                else
+                                    $iselect="";
+                                ?>
+                                <option value="<?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?>" <?php echo $iselect?> > <?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?> </option>
 
-    	</div>
-    </form>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="smesterText" class="control-label col-sm-3">Smester:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control only-number" id="smesterText" name="semestertxt" value="<?php echo $rs_upd['semester'];?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subjectInput" class="control-label col-sm-3">Subjects's name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="subjectInput" name="subtxt" value="<?php echo $rs_upd['sub_name'];?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNote" class="control-label col-sm-3">Description:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" id="inputNote" name="notetxt" cols="8" rows="6"><?php echo $rs_upd['note'];?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btn_upd" value="Update" class="btn btn-success col-md-offset-4 col-sm-offset-4 col-xs-offset-2"/>
+                    <input type="reset" value="Cancel" class="btn btn-primary col-md-offset-3 col-sm-offset-3 col-xs-offset-3"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-</div><!-- end of style_informatios -->
 <?php
 }
 else
@@ -193,7 +198,7 @@ else
                             $fac_name=mysql_query("SELECT * FROM facuties_tbl");
                             while($row=mysql_fetch_array($fac_name)){
                                 ?>
-                                <option value="<?php echo $row['faculties_id'];?>"> <?php echo $row['faculties_name'];?> </option>
+                                <option value="<?php echo $row['faculties_name'];?>"> <?php echo $row['faculties_name'];?> </option>
                             <?php
                             }
                             ?>
@@ -208,7 +213,7 @@ else
                             $te_name=mysql_query("SELECT * FROM teacher_tbl");
                             while($row=mysql_fetch_array($te_name)){
                                 ?>
-                                <option value="<?php echo $row['teacher_id'];?>"> <?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?> </option>
+                                <option value="<?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?>"> <?php echo $row['f_name'] ; echo " "; echo $row['l_name'];?> </option>
 
                             <?php
                             }
@@ -219,7 +224,7 @@ else
                 <div class="form-group">
                     <label for="smesterText" class="control-label col-sm-3">Smester:</label>
                     <div class="col-sm-8">
-                        <input id="txtboxToFilter" type="number" class="form-control" id="smesterText" name="semestertxt"  placeholder="Smester(e.g: 1-8)" required>
+                        <input type="number" class="form-control only-number" id="smesterText" name="semestertxt"  placeholder="Smester(e.g: 1-8)" required>
                     </div>
                 </div>
                 <div class="form-group">
