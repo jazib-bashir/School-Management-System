@@ -29,35 +29,37 @@ if(isset($_GET['rs_id']))
 </head>
 
 <body>
-<div id="style_div" >
-<form method="post">
-<table width="755">
-	<tr>
-    	<td width="190px" style="font-size:18px; color:#006; text-indent:30px;">View Teachers</td>
-        <td><a href="?tag=teachers_entry"><input type="button" title="Add new Teachers" name="butAdd" value="Add New" id="button-search" /></a></td>
-        <td><input type="text" name="searchtxt" title="Enter name for search " class="search" autocomplete="off"/></td>
-        <td style="float:right"><input type="submit" name="btnsearch" value="Search" id="button-search" title="Search Teacher" /></td>
-    </tr>
-</table>
-</form>
-</div><!--end of style_div -->
-<br />
-
-<div id="content-input">
-	 <table border="1" width="1050px" align="center" cellpadding="3" class="mytable" cellspacing="0">
+<div class="col-md-12  view-form-style">
+    <div class="col-md-12 entry-head margin-20b">
+        <h4 class="left">Teachers View</h4>
+        <a class="btn btn-primary right" href="?tag=teachers_entry">Add New Teacher</a>
+    </div>
+    <form role="form" data-toggle="validator" method="post" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-1 col-xs-9 col-sm-10">
+                <input type="text" class="form-control" name="searchtxt" Placeholder="Enter name for search" autocomplete="off"/></div>
+            <input type="submit" name="btnsearch" value="Search" class="btn btn-info"/>
+        </div>
+    </form>
+<!--<form method="post">-->
+<!--<table width="755">-->
+<!--	<tr>-->
+<!--    	<td width="190px" style="font-size:18px; color:#006; text-indent:30px;">View Teachers</td>-->
+<!--        <td><a href="?tag=teachers_entry"><input type="button" title="Add new Teachers" name="butAdd" value="Add New" id="button-search" /></a></td>-->
+<!--        <td><input type="text" name="searchtxt" title="Enter name for search " class="search" autocomplete="off"/></td>-->
+<!--        <td style="float:right"><input type="submit" name="btnsearch" value="Search" id="button-search" title="Search Teacher" /></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</form>-->
+<div class="table-responsive">
+    <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Teacher Name</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>Place of Birth</th>
             <th>Address</th>
             <th>Degree</th>
-            <th>Salary</th>
-            <th>Married</th>
             <th>Phone</th>
             <th>E-mail</th>
-            <th>Note</th>
             <th colspan="2">Operation</th>
         </tr>
          <?php
@@ -78,16 +80,10 @@ if(isset($_GET['rs_id']))
       <tr bgcolor="<?php echo $color?>">
             <td><?php echo $i;?></td>
             <td><?php echo $row['f_name']."    ".$row['l_name'];?></td>
-            <td><?php echo $row['gender'];?></td>
-            <td><?php echo $row['dob'];?></td>
-            <td><?php echo $row['pob'];?></td>
             <td><?php echo $row['address'];?></td>
             <td><?php echo $row['degree'];?></td>
-            <td><?php echo $row['salary'];?></td>
-            <td><?php echo $row['married'];?></td>
             <td><?php echo $row['phone'];?></td>
             <td><?php echo $row['email'];?></td>
-            <td><?php echo $row['note'];?></td>
             <td><a href="?tag=teachers_entry&opr=upd&rs_id=<?php echo $row['teacher_id'];?>" title="Upate"><img src="picture/update.png" /></a></td>
             <td><a href="?tag=view_teachers&opr=del&rs_id=<?php echo $row['teacher_id'];?>" title="Delete"><img src="picture/delete.png" /></a></td>
         </tr>
